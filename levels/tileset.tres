@@ -1,0 +1,26 @@
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://b2lsr1y802vp2"]
+
+[ext_resource type="Texture2D" uid="uid://2vp2218hsyrr" path="res://sprites/tile.png" id="1_t8ifc"]
+[ext_resource type="PackedScene" uid="uid://dqhj436sqp157" path="res://entities/clock.tscn" id="2_0tc62"]
+[ext_resource type="PackedScene" uid="uid://ngog544u6ppv" path="res://entities/spike.tscn" id="3_0tc62"]
+[ext_resource type="PackedScene" uid="uid://b7vnp2ifo46jd" path="res://entities/bigclock.tscn" id="4_u0v45"]
+[ext_resource type="PackedScene" uid="uid://bwntw6muj7pbo" path="res://entities/lift.tscn" id="5_nps8k"]
+[ext_resource type="PackedScene" uid="uid://cnnlxnk61k3k5" path="res://entities/finish.tscn" id="6_brfn1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a47pm"]
+texture = ExtResource("1_t8ifc")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a47pm"]
+resource_name = "entities"
+scenes/1/scene = ExtResource("2_0tc62")
+scenes/2/scene = ExtResource("3_0tc62")
+scenes/3/scene = ExtResource("4_u0v45")
+scenes/4/scene = ExtResource("5_nps8k")
+scenes/5/scene = ExtResource("6_brfn1")
+
+[resource]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_a47pm")
+sources/1 = SubResource("TileSetScenesCollectionSource_a47pm")

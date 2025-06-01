@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://x8hhe2yc4i6k"]
+
+[ext_resource type="Script" uid="uid://dokomm3a4bfsk" path="res://levels/1.gd" id="1_eeclr"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_eeclr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 248.0
+offset_bottom = 232.0
+bbcode_enabled = true
+text = "[color=green][font_size=8]Greenvoid
+
+Get through the levels, but make sure you don't run out of time! Collect clocks to increase the amount of time left.
+
+[b]Dash[/b] in the air to stop falling and go forward a certain area, perform a light [b]double jump[/b] to get out of certain situations, and [b]bounce[/b] to reach higher places. Perform [b]chain actions[/b] of these abilities to get yourself farther distances, with three chain actions possible at a time in the air.
+
+Be wary of the draining blocks! They [i]drain your time if you step in them[/i]. If you can, get around them, or get through as fast as you can!
+
+Press SPACE to continue.
+[/font_size][/color]"
+custom_effects = [null]

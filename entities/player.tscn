@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://kunr6rpvofb"]
+
+[ext_resource type="Script" uid="uid://b2hkpu3h2kq63" path="res://entities/player.gd" id="1_b0kkn"]
+[ext_resource type="Texture2D" uid="uid://d2r6qwrb1c183" path="res://sprites/player.png" id="1_merdl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3f3p"]
+size = Vector2(12, 16)
+
+[sub_resource type="Gradient" id="Gradient_b0kkn"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_b0kkn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_merdl"]
+resource_name = "bounce"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.5, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e4p34"]
+_data = {
+&"RESET": SubResource("Animation_b0kkn"),
+&"bounce": SubResource("Animation_merdl")
+}
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_b0kkn")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u3f3p")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_merdl")
+
+[node name="Afterimages" type="CPUParticles2D" parent="Sprite"]
+scale = Vector2(2, 0.5)
+emitting = false
+amount = 6
+texture = ExtResource("1_merdl")
+lifetime = 0.3
+gravity = Vector2(0, 0)
+color_ramp = SubResource("Gradient_b0kkn")
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_e4p34")
+}
+
+[node name="Camera" type="Camera2D" parent="."]
+visible = false
+limit_left = 0
+limit_top = 0
+limit_right = 512
+limit_bottom = 240
+position_smoothing_speed = 2.0

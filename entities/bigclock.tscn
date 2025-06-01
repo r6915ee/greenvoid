@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7vnp2ifo46jd"]
+
+[ext_resource type="Script" uid="uid://caiecygkfk0x4" path="res://entities/clock.gd" id="1_0nwhl"]
+[ext_resource type="Texture2D" uid="uid://bhg5a0r4y87wy" path="res://sprites/clock.png" id="2_21kfc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dk1b"]
+size = Vector2(14, 14)
+
+[node name="Big Clock" type="StaticBody2D"]
+script = ExtResource("1_0nwhl")
+size = 1
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="Area" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_0dk1b")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_21kfc")
+hframes = 2
+frame = 1
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_collision"]

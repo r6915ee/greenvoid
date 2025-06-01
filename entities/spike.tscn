@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ngog544u6ppv"]
+
+[ext_resource type="Script" uid="uid://cg8chap1757yt" path="res://entities/spike.gd" id="1_nv1dx"]
+[ext_resource type="Texture2D" uid="uid://bjkrfxrqv3f4m" path="res://sprites/spike.png" id="1_pm5iw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pm5iw"]
+size = Vector2(12, 16)
+
+[node name="Spike" type="StaticBody2D"]
+script = ExtResource("1_nv1dx")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="Area" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_pm5iw")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_pm5iw")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_collision"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_leave"]

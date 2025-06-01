@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://biawvb2qo5iol"]
+
+[node name="End" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 248.0
+offset_bottom = 232.0
+bbcode_enabled = true
+text = "[color=green][font_size=8]You've beaten the hard mode!
+
+There's no flashiness like most other games like this, but I mainly focused on gameplay for this, as well as some of the levels. That's why the game takes this particular style, as well as the name of the actual game.
+
+Timers in video games have different uses than the way they're used here, but they're still much more stressing than the one here. I'd recommend Pizza Tower if you're looking for one of those kinds of games.
+
+Despite this, this game was still certainly interesting to work on. Godot is my preferred game engine, so learning more about it (for example, with the text you're reading right now) is very interesting.
+
+With that said, thank you for playing Greenvoid!
+[/font_size][/color]"
+custom_effects = [null]
